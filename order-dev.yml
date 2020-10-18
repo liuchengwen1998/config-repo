@@ -17,3 +17,5 @@ server:
 
 env:
   dev
+label:
+  release
