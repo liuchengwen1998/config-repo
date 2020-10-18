@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: order
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: springcloud
+    password: springcloud
+    url: jdbc:mysql://39.106.217.100/SpringCloud_Sell?characterEncoding=utf-8&useSSL=false
+    jpa:
+      show-sql: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8091
+env:
+  test
