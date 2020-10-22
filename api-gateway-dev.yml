@@ -27,12 +27,14 @@ management:
   security:
     enabled: false
 zuul:
+# 全部服务忽略敏感头（都可以得到cookie）
+  sensitiveHeaders:
   routes:
     # /myProduct/product/list -> /product/product/list
     myProduct:
       path: /myProduct/**
       serviceId: product
-      sensitiveHeaders:
+      
   # 简介写法
   #    product: /myProduct/**
   ignored-patterns:
