@@ -30,7 +30,7 @@ eureka:
 server:
   port: 8091
 env:
-  test6
+  test5
 
 hystrix:
   command:
