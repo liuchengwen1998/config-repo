@@ -13,11 +13,40 @@ spring:
     port: 5672
     username: guest
     password: guest
-# eureka:
-#   client:
-#     service-url:
-#       defaultZone: http://localhost:8761/eureka/
+  redis:
+    host: 192.168.1.102
+    port: 6379
+  zipkin:
+    base-url: http://zipkin:9411/
+  sleuth:
+    sampler:
+      percentage: 1
+eureka:
+  client:
+   service-url:
+     defaultZone: http://eureka1:8761/eureka/,http://eureka2:8762/eureka/
+  instance:
+    prefer-ip-address: true
 server:
   port: 8091
 env:
   test6
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+    getProductList:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 4000
+# feign开启hystrix
+feign:
+  hystrix:
+    enabled: true
+management:
+  context-path: /
